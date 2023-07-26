@@ -26,7 +26,18 @@ save(form: any, file?: any) {
     return this.http.post(this.url, formData, { params, headers });
   }
 
-
+// no dotnet
         public IActionResult Post()
         {
+            var files = Request.Form.Files;
+          	foreach(var key in HttpContext.Request.Form.Keys)
+          	{
+          		var val = HttpContext.Request.Form[key];
+          
+          		//process the form data
+          	}
+	
+	        return Ok();
 }
+
+
