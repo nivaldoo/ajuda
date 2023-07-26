@@ -22,7 +22,7 @@ save(form: any, file?: any) {
     formData.append('cnpj', form.cnpj);
     formData.append('tradingName', form.tradingName);
     formData.append('idMunicipality', form.address.idMunicipality)
-    formData.append('file', file, 'quanquer')
+    formData.append('file', file, 'quanquer') //pode ser file.name
     return this.http.post(this.url, formData, { params, headers });
   }
 
