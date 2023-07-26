@@ -1,4 +1,17 @@
-  save(form: any, file?: any) {
+
+  fileUpload: any;
+
+<input type="file" name="..." 
+                                                     (change)="onChange($event)" />
+
+  onChange(event) {
+    this.fileUpload = event.target.files[0];
+}
+
+        this.ecvService.save(this.formulario.value, this.fileUpload).subscribe({
+
+
+save(form: any, file?: any) {
     let headers = new HttpHeaders();
     //this is the important step. You need to set content type as null
     headers.set('Content-Type', null);
@@ -12,3 +25,8 @@
     formData.append('file', file, 'quanquer')
     return this.http.post(this.url, formData, { params, headers });
   }
+
+
+        public IActionResult Post()
+        {
+}
