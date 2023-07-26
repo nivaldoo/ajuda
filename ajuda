@@ -1,0 +1,14 @@
+  save(form: any, file?: any) {
+    let headers = new HttpHeaders();
+    //this is the important step. You need to set content type as null
+    headers.set('Content-Type', null);
+    headers.set('Accept', "multipart/form-data");
+    let params = new HttpParams();
+
+    var formData = new FormData();
+    formData.append('cnpj', form.cnpj);
+    formData.append('tradingName', form.tradingName);
+    formData.append('idMunicipality', form.address.idMunicipality)
+    formData.append('file', file, 'quanquer')
+    return this.http.post(this.url, formData, { params, headers });
+  }
